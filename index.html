@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Strength Analyzer</title>
+    <style>
+        /* Basic styling to make it look clean */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            padding-top: 50px;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            width: 350px;
+        }
+        input[type="text"] {
+            width: 93%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .strength-meter {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        /* Default state for checklist items (Unmet) */
+        li {
+            color: #d9534f; /* Red */
+            margin-bottom: 8px;
+            transition: color 0.3s ease;
+        }
+        /* Active state for checklist items (Met) */
+        li.valid {
+            color: #5cb85c; /* Green */
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #suggested-password {
+            margin-top: 15px;
+            font-weight: bold;
+            text-align: center;
+            word-break: break-all;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Password Analyzer</h2>
+        
+        <input type="text" id="password-input" placeholder="Type a password...">
+
+        <div class="strength-meter">Strength: <span id="strength-level">None</span></div>
+
+        <ul>
+            <li id="req-length">✗ At least 8 characters</li>
+            <li id="req-upper">✗ Contains uppercase letter</li>
+            <li id="req-lower">✗ Contains lowercase letter</li>
+            <li id="req-number">✗ Contains number</li>
+            <li id="req-symbol">✗ Contains special symbol (!@#$%)</li>
+        </ul>
+
+        <hr>
+
+        <button id="generate-btn">Generate Strong Password</button>
+        <p id="suggested-password"></p>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
